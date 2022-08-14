@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/portfolio.css">
+    <title>Portfolio website by Bunnawach</title>
+</head>
+
+<body>
+    <!-- MAIN (Center website) -->
+    <div class="main">
+
+        <div class="typewriter">
+            <h1>Portfolio</h1>
+        </div>
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('projects')"> MyProject</button>
+            <button class="btn" onclick="filterSelection('certificate')"> Certificate</button>
+        </div>
+
+        <!-- Portfolio Gallery Grid -->
+        <div class="row">
+            <div class="column projects">
+                <div class="content">
+                    <img src="assets/img/myproject01.jpg" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>Portfolio website</h4>
+                    <p>
+                        <center>เว็บไซต์พอร์ตโฟลิโอสร้างโดย HTML,CSS,Js</p>
+                    </center>
+                </div>
+            </div>
+            <div class="column projects">
+                <div class="content">
+                    <img src="assets/img/myproject02.JPG" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>input/output</h4>
+                    <p>
+                        <center>เว็บรับค่าเเสดงค่าสร้างโดย HTML,PHP</p>
+                    </center>
+                </div>
+            </div>
+            <div class="column projects">
+                <div class="content">
+                    <img src="assets/img/myproject03.JPG" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>เข้าหัวสายLANตัวเมีย</h4>
+                    <p>
+                        <center>เข้าหัวสายLANตัวเมีย</p>
+                    </center>
+                </div>
+            </div>
+            <div class="column projects">
+                <div class="content">
+                    <img src="assets/img/myproject04.JPG" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>เปลี่ยนบอร์ดpower supply</h4>
+                    <p>
+                        <center>รูปภาพขณะฝึกงาน</p>
+                    </center>
+                </div>
+            </div>
+            <div class="column projects">
+                <div class="content">
+                    <img src="assets/img/myproject05.JPG" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>เเกะโน้ตบุ๊คทำความสะอาด</h4>
+                    <p>
+                        <center>รูปภาพขณะฝึกงาน</p>
+                    </center>
+                </div>
+            </div>
+
+            <div class="column certificate">
+                <div class="content">
+                    <img src="assets/img/certificate1.jpg" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>เกียรติบัตรอบรมการเข้าหัวสายLAN</h4>
+                    <p>
+                        <center>บริษัท อินเตอร์ลิ้ง เทเลคอม จำกัด ได้มาจัดกิจกรรมอบรมการเข้าหัวสายLAN</p>
+                    </center>
+                </div>
+                <!-- END GRID -->
+            </div>
+            <div class="column projects">
+                <div class="content">
+                    <img src="assets/img/myproject06.JPG" alt="Car" width="250" height="250">
+                    <h4>
+                        <center>รื้อปริ้นเตอร์เพื่อทำความสะอาด</h4>
+                    <p>
+                        <center>รูปภาพขณะฝึกงาน</p>
+                    </center>
+                </div>
+            </div>
+
+            <!-- END MAIN -->
+        </div>
+
+        <script>
+            filterSelection("all")
+
+            function filterSelection(c) {
+                var x, i;
+                x = document.getElementsByClassName("column");
+                if (c == "all") c = "";
+                for (i = 0; i < x.length; i++) {
+                    w3RemoveClass(x[i], "show");
+                    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                }
+            }
+
+            function w3AddClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) {
+                        element.className += " " + arr2[i];
+                    }
+                }
+            }
+
+            function w3RemoveClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                    }
+                }
+                element.className = arr1.join(" ");
+            }
+
+
+            // Add active class to the current button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
+            }
+        </script>
+</body>
+
+</html>
